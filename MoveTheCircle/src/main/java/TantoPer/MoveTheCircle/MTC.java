@@ -3,15 +3,18 @@ package TantoPer.MoveTheCircle;
 public class MTC {
 
 	private static Frame frame;
+	private static GameManager gameManager;
+	private static Player player;
 
 	public static void main(String[] args) {
+		gameManager = new GameManager();
+		player = new Player();
 		frame = new Frame(new MTC());
 	}
 
-	public void update() {
-		// update gm -> update player points
-		//frame.getCounter().setText("player.getPoints()");
-		frame.getCounter().setText("1");	
 
+	public void update() {
+		gameManager.update(player, 1);
+		frame.updateCounter(String.valueOf(player.getPoints()));	
 	}
 }
