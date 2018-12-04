@@ -13,9 +13,10 @@ public class Frame {
 	public JButton myButton;
 	private JLabel counter;
 	private JLabel img;
+	private JFrame frame;
 
 	public Frame(MTC mtc) {
-		JFrame frame = new JFrame("Move the Cicle");
+		frame = new JFrame("Move the Cicle");
 		frame.setSize(500, 400);
 		Container myContainer = frame.getContentPane();
 		myContainer.setLayout(null);
@@ -27,10 +28,10 @@ public class Frame {
 		pointString.setBounds(100,300,100,50);
 		frame.add(pointString);
 		
-		setCounter(new JLabel());
-		getCounter().setText("0");
-		getCounter().setBounds(200,300,100,50);
-		frame.add(getCounter());
+		counter = new JLabel();
+		counter.setText("0");
+		counter.setBounds(200,300,100,50);
+		frame.add(counter);
 		
 		Icon image = new ImageIcon(getClass().getResource("circle.png"));
 		img = new JLabel(image); 
@@ -49,12 +50,8 @@ public class Frame {
 		frame.add(button);		
 	}
 
-	public JLabel getCounter() {
-		return counter;
-	}
-
-	public void setCounter(JLabel counter) {
-		this.counter = counter;
+	public void updateCounter(String text) {
+		this.counter.setText(text);
 	}
 
 }
