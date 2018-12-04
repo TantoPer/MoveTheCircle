@@ -10,7 +10,6 @@ import javax.swing.JLabel;
 
 
 public class Frame {
-	public JButton myButton;
 	private JLabel counter;
 	private JLabel img;
 	private JFrame frame;
