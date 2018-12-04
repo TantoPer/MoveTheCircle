@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 public class Frame {
 	private JLabel counter;
 	private JFrame frame;
+	private JLabel imgToView;
 	private ImagineLoader img;
 
 	public Frame(MTC mtc) {
@@ -29,8 +30,11 @@ public class Frame {
 		counter.setText("0");
 		counter.setBounds(200,300,100,50);
 		frame.add(counter);
-			
-		img = new ImagineLoader("circle.png",frame);
+		
+		img = new ImagineLoader("circle.png");
+		imgToView = new JLabel(img.getImg());
+		imgToView.setBounds(100,150, 50, 50);
+		frame.add(imgToView).setVisible(true);
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
