@@ -2,8 +2,6 @@ package TantoPer.MoveTheCircle;
 
 
 import java.awt.Container;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -11,8 +9,8 @@ import javax.swing.JLabel;
 
 public class Frame {
 	private JLabel counter;
-	private JLabel img;
 	private JFrame frame;
+	private ImagineLoader img;
 
 	public Frame(MTC mtc) {
 		frame = new JFrame("Move the Cicle");
@@ -31,13 +29,9 @@ public class Frame {
 		counter.setText("0");
 		counter.setBounds(200,300,100,50);
 		frame.add(counter);
+			
+		img = new ImagineLoader("circle.png",frame);
 		
-		Icon image = new ImageIcon(getClass().getResource("circle.png"));
-		img = new JLabel(image); 
-		img.setBounds(100,150, 50, 50);
-		img.setVisible(true);
-		frame.add(img).isVisible();
-				
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 	}
