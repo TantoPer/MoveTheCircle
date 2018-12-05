@@ -9,8 +9,9 @@ import javax.swing.JLabel;
 
 public class Frame {
 	private JLabel counter;
-	private JLabel img;
+	private JLabel imgToView;
 	private JFrame frame;
+	private int position = 0;
 
 	public Frame(MTC mtc) {
 		frame = new JFrame("Move the Cicle");
@@ -42,11 +43,24 @@ public class Frame {
 
 	private void imagineLoader(String fileName) {
 		Icon image = new ImageIcon(getClass().getResource(fileName));
-		img = new JLabel(image);
-		img.setBounds(100, 150, 50, 50);
-		img.setVisible(true);
-		frame.add(img).isVisible();
+		imgToView = new JLabel(image);
+		imgToView.setBounds(100, 150, 50, 50);
+		frame.add(imgToView).setVisible(true);
 
+	}
+
+	public void imagineNewPosition() {
+		if(getPosition()==0) {
+			imgToView.setVisible(false);
+			imgToView.setBounds(150, 150, 50, 50);
+			frame.add(imgToView).setVisible(true);
+			setPosition(1);
+		}else {
+			imgToView.setVisible(false);
+			imgToView.setBounds(100, 150, 50, 50);
+			frame.add(imgToView).setVisible(true);
+			setPosition(0);	
+		}
 	}
 
 	private void createPointString() {
@@ -59,6 +73,14 @@ public class Frame {
 
 	public void updateCounter(String text) {
 		this.counter.setText(text);
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public void setPosition(int position) {
+		this.position = position;
 	}
 
 }
