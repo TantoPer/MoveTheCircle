@@ -44,7 +44,7 @@ public class Frame {
 	private void imagineLoader(String fileName) {
 		Icon image = new ImageIcon(getClass().getResource(fileName));
 		imgToView = new JLabel(image);
-		imgToView.setBounds(100, 150, 50, 50);
+		imgToView.setBounds(150, 150, 50, 50);
 		frame.add(imgToView).setVisible(true);
 
 	}
@@ -52,12 +52,12 @@ public class Frame {
 	public void imagineNewPosition() {
 		if(getPosition()==0) {
 			imgToView.setVisible(false);
-			imgToView.setBounds(150, 150, 50, 50);
+			imgToView.setBounds(300, 150, 50, 50);
 			frame.add(imgToView).setVisible(true);
 			setPosition(1);
 		}else {
 			imgToView.setVisible(false);
-			imgToView.setBounds(100, 150, 50, 50);
+			imgToView.setBounds(150, 150, 50, 50);
 			frame.add(imgToView).setVisible(true);
 			setPosition(0);	
 		}
