@@ -1,6 +1,8 @@
 package TantoPer.MoveTheCircle;
 
 import java.awt.Container;
+import java.util.Random;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,9 +14,12 @@ public class Frame {
 	private JLabel imgToView;
 	private JFrame frame;
 	private int position = 0;
+	
+	Random rand = new Random();
 
 	public Frame(MTC mtc) {
 		frame = new JFrame("Move the Cicle");
+		
 		frame.setSize(500, 400);
 		Container myContainer = frame.getContentPane();
 		myContainer.setLayout(null);
@@ -50,19 +55,22 @@ public class Frame {
 	}
 
 	public void imagineNewPosition() {
+		int randomX,randomY;
+		randomX=rand.nextInt(500);
+		randomY=rand.nextInt(400);
 		if(getPosition()==0) {
-			imgToView.setVisible(false);
-			imgToView.setBounds(300, 150, 50, 50);
+			imgToView.setVisible(false);	
+			imgToView.setBounds(randomX, randomY, 50, 50);
 			frame.add(imgToView).setVisible(true);
 			setPosition(1);
 		}else {
 			imgToView.setVisible(false);
-			imgToView.setBounds(150, 150, 50, 50);
+			imgToView.setBounds(randomX, randomY, 50, 50);
 			frame.add(imgToView).setVisible(true);
 			setPosition(0);	
 		}
 	}
-
+	
 	private void createPointString() {
 		JLabel pointString = new JLabel();
 		pointString.setText("Points:");
