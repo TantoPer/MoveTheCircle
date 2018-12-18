@@ -11,11 +11,11 @@ public class MTC {
 		player = new Player();
 		frame = new Frame(new MTC());
 	}
-
-
+	
 	public void update() {
 		gameManager.update(player, 1);
 		frame.updateCounter(String.valueOf(player.getPoints()));
 		frame.imagineNewPosition();
 	}
+	
 }

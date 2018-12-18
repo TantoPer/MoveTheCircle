@@ -13,21 +13,19 @@ public class Frame {
 	private JLabel counter;
 	private JLabel imgToView;
 	private JFrame frame;
-	private int position = 0;
-	
+
 	Random rand = new Random();
 
 	public Frame(MTC mtc) {
 		frame = new JFrame("Move the Cicle");
-		
 		frame.setSize(500, 400);
+		frame.setResizable(false);		
 		Container myContainer = frame.getContentPane();
 		myContainer.setLayout(null);
 		createButton(frame, mtc);
 		createPointString();
 		createLabelCounter();
 		imagineLoader("circle.png");
-
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 	}
@@ -55,20 +53,13 @@ public class Frame {
 	}
 
 	public void imagineNewPosition() {
-		int randomX,randomY;
-		randomX=rand.nextInt(500);
-		randomY=rand.nextInt(400);
-		if(getPosition()==0) {
-			imgToView.setVisible(false);	
-			imgToView.setBounds(randomX, randomY, 50, 50);
-			frame.add(imgToView).setVisible(true);
-			setPosition(1);
-		}else {
-			imgToView.setVisible(false);
-			imgToView.setBounds(randomX, randomY, 50, 50);
-			frame.add(imgToView).setVisible(true);
-			setPosition(0);	
-		}
+		int randomX, randomY;
+		randomX = rand.nextInt(400);
+		randomY = rand.nextInt(250);
+
+		imgToView.setVisible(false);
+		imgToView.setBounds(randomX, randomY, 50, 50);
+		frame.add(imgToView).setVisible(true);
 	}
 	
 	private void createPointString() {
@@ -76,19 +67,10 @@ public class Frame {
 		pointString.setText("Points:");
 		pointString.setBounds(100, 300, 100, 50);
 		frame.add(pointString);
-
 	}
-
+	
 	public void updateCounter(String text) {
 		this.counter.setText(text);
-	}
-
-	public int getPosition() {
-		return position;
-	}
-
-	public void setPosition(int position) {
-		this.position = position;
 	}
 
 }
